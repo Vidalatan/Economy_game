@@ -1,7 +1,7 @@
 import time
 
 import actions
-import db_trans as db
+import db_transactions as db
 from classes import Player,Product
 
 main_actions = {"discover":actions.discover, "create":actions.create}
@@ -17,7 +17,12 @@ while logging_in:
         logu = input("Please enter your username:\n")
         logp = input("Please enter your password:\n")
         try:
-            if db_actions["find"](logu,logp)
+            now = db_actions["find"](logu,logp)
+            player = Player(now[0],now[1])
+            player.resources = now[2]
+            player.products = now[3]
+            logging_in = False
+
         except:
             print("Log in unsuccessful.")
     else:
