@@ -20,3 +20,11 @@ def download_player(player,password):
                     return "Password failed to match"
             else:
                 return "Username failed to match"
+
+def verify_player(player):
+    with open('player_db.txt') as db:
+        for x in db:
+            if player in x:
+                return True
+            else:
+                return False
